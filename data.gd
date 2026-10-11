@@ -3,6 +3,7 @@ extends Node
 
 signal auth_status_changed(success, message)
 signal save_conflict_detected(cloud_data)
+signal gold_changed(amount)
 
 const SAVE_PATH = "user://savegame.json"
 const AUTH_PATH = "user://auth.json"
@@ -15,6 +16,11 @@ var first_welcome_screen = true
 # Make sure this signal is declared at the top of Data.gd
 signal mission_updated(new_mission)
 signal health_updated()
+
+func change_gold(amount: int):
+	save_data["gold"] += amount
+	# Emit the signal with the difference amount (+50 or -20)
+	emit_signal("gold_changed", amount)
 
 func update_health(amount: int = 0):
 	if amount != 0:

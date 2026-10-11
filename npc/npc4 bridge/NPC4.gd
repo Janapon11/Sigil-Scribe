@@ -186,6 +186,9 @@ func close_dialogue():
 
 	is_dialogue_active = false
 	current_line_index = 0
+	
+	if (Data.save_data.get("mission_number", -1)) == 17:
+		Data.change_gold(20)
 
 func set_player_ui_visible(is_visible: bool):
 	if target_player and is_instance_valid(target_player):

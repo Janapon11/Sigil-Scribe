@@ -168,7 +168,7 @@ func _on_confirm_pressed():
 		
 		if f1.transition_time > 0.0:
 			yield(get_tree().create_timer(f1.transition_time + f1.delay + 0.5), "timeout")
-			
+		Data.change_gold(10)
 		_puzzle_solved()
 	else:
 		$Popup/InstructionLabel.text = "Incorrect logic, try again."

@@ -856,27 +856,28 @@ margin_right = 248.0
 margin_bottom = 176.0
 
 [node name="Gate 4" parent="Popup/NinePatchRect/Gates" instance=ExtResource( 7 )]
-margin_left = 424.0
-margin_top = 88.0
-margin_right = 456.0
-margin_bottom = 120.0
-LogicGate = "AND"
+margin_left = 416.0
+margin_top = 120.0
+margin_right = 448.0
+margin_bottom = 152.0
+LogicGate = "NOR"
 
 [node name="Gate 5" parent="Popup/NinePatchRect/Gates" instance=ExtResource( 7 )]
-margin_left = 488.0
-margin_top = 88.0
-margin_right = 520.0
-margin_bottom = 120.0
-LogicGate = "OR"
+margin_left = 456.0
+margin_top = 120.0
+margin_right = 488.0
+margin_bottom = 152.0
+LogicGate = "NOT"
 
 [node name="Gate 6" parent="Popup/NinePatchRect/Gates" instance=ExtResource( 7 )]
-margin_left = 424.0
-margin_top = 152.0
-margin_right = 456.0
-margin_bottom = 184.0
-LogicGate = "XOR"
+margin_left = 496.0
+margin_top = 120.0
+margin_right = 528.0
+margin_bottom = 152.0
+LogicGate = "AND"
 
 [node name="Gate 7" parent="Popup/NinePatchRect/Gates" instance=ExtResource( 7 )]
+visible = false
 margin_left = 488.0
 margin_top = 152.0
 margin_right = 520.0
@@ -898,13 +899,13 @@ margin_left = 80.0
 margin_top = 144.0
 margin_right = 96.0
 margin_bottom = 160.0
+SourceType = "NEGATIVE"
 
 [node name="Source 3" parent="Popup/NinePatchRect/Sources" instance=ExtResource( 6 )]
 margin_left = 80.0
 margin_top = 208.0
 margin_right = 96.0
 margin_bottom = 224.0
-SourceType = "NEGATIVE"
 
 [node name="Final" type="Node2D" parent="Popup/NinePatchRect"]
 
@@ -913,7 +914,6 @@ margin_left = 288.0
 margin_top = 129.0
 margin_right = 328.0
 margin_bottom = 169.0
-required_state = false
 update_on_confirm = true
 delay = 1.5
 
@@ -1047,7 +1047,7 @@ margin_left = 136.0
 margin_top = 104.0
 margin_right = 168.0
 margin_bottom = 136.0
-LogicGate = "OR"
+LogicGate = "AND"
 
 [node name="Gate 2" parent="Preview/NinePatchRect/Gates" instance=ExtResource( 7 )]
 margin_left = 96.0
@@ -1062,28 +1062,28 @@ margin_left = 216.0
 margin_top = 144.0
 margin_right = 248.0
 margin_bottom = 176.0
-LogicGate = "XOR"
+LogicGate = "NOR"
 
 [node name="Gate 4" parent="Preview/NinePatchRect/Gates" instance=ExtResource( 7 )]
-margin_left = 424.0
-margin_top = 88.0
-margin_right = 456.0
-margin_bottom = 120.0
-LogicGate = "AND"
+margin_left = 416.0
+margin_top = 120.0
+margin_right = 448.0
+margin_bottom = 152.0
 
 [node name="Gate 5" parent="Preview/NinePatchRect/Gates" instance=ExtResource( 7 )]
-margin_left = 488.0
-margin_top = 88.0
-margin_right = 520.0
-margin_bottom = 120.0
+margin_left = 456.0
+margin_top = 120.0
+margin_right = 488.0
+margin_bottom = 152.0
 
 [node name="Gate 6" parent="Preview/NinePatchRect/Gates" instance=ExtResource( 7 )]
-margin_left = 424.0
-margin_top = 152.0
-margin_right = 456.0
-margin_bottom = 184.0
+margin_left = 496.0
+margin_top = 120.0
+margin_right = 528.0
+margin_bottom = 152.0
 
 [node name="Gate 7" parent="Preview/NinePatchRect/Gates" instance=ExtResource( 7 )]
+visible = false
 margin_left = 488.0
 margin_top = 152.0
 margin_right = 520.0
@@ -1104,13 +1104,13 @@ margin_left = 80.0
 margin_top = 144.0
 margin_right = 96.0
 margin_bottom = 160.0
+SourceType = "NEGATIVE"
 
 [node name="Source 3" parent="Preview/NinePatchRect/Sources" instance=ExtResource( 6 )]
 margin_left = 80.0
 margin_top = 208.0
 margin_right = 96.0
 margin_bottom = 224.0
-SourceType = "NEGATIVE"
 
 [node name="Final" type="Node2D" parent="Preview/NinePatchRect"]
 
@@ -1119,7 +1119,6 @@ margin_left = 288.0
 margin_top = 129.0
 margin_right = 328.0
 margin_bottom = 169.0
-required_state = false
 
 [node name="Panel" type="Panel" parent="Preview/NinePatchRect"]
 modulate = Color( 1, 1, 1, 0 )

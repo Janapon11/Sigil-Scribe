@@ -80,6 +80,8 @@ func _notification(what):
 	if what == NOTIFICATION_PAUSED:
 		$ControlButtons.visible = false
 		$Hearts.visible = false
+		$Gold.hide()
+		$Shop.hide()
 		_save_player_position()
 		
 		if $TutorialPlayer.is_playing():
@@ -90,6 +92,8 @@ func _notification(what):
 	elif what == NOTIFICATION_UNPAUSED:
 		$ControlButtons.visible = true
 		$Hearts.visible = true
+		$Gold.show()
+		$Shop.show()
 		
 		if $TutorialPlayer.current_animation == "Play_Movement_Tutorial":
 			$TutorialPlayer.playback_active = true

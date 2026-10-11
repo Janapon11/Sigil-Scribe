@@ -178,7 +178,8 @@ func _on_confirm_pressed():
 		$Platform/AnimatedSprite.play("default")
 		$Platform/KinematicBody2D/CollisionShape2D.disabled = false
 		$Platform/AnimationPlayer.play("moving_platform")
-	
+		
+		Data.change_gold(5)
 		_puzzle_solved()
 		if not "LG_4" in Data.save_data["puzzles_solved"]:
 			Data.save_data["puzzles_solved"].append("LG_4")

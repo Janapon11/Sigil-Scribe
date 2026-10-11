@@ -71,6 +71,12 @@ func _ready():
 	$Preview.visible = false
 	$Popup.visible = false
 	if "LG_9" in Data.save_data["puzzles_solved"]:
+		for block in $Bridge/Bridge_Blocks.get_children():
+			var collision = block.get_node("StaticBody2D/CollisionShape2D")
+			var animation = block.get_node("AnimationPlayer")
+			animation.play("RESET")
+			block.visible = true
+			collision.disabled = false
 		_puzzle_solved()
 	else:
 		for block in $Bridge/Bridge_Blocks.get_children():
@@ -209,7 +215,7 @@ func _on_confirm_pressed():
 			animation.play("stretch")
 			yield(animation, "animation_finished")
 			collision.disabled = false
-		
+		Data.change_gold(15)
 		_puzzle_solved()
 	else:
 		$Popup/InstructionLabel.text = "Incorrect logic, try again."

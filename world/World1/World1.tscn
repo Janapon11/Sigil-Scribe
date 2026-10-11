@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://tileset/dirt_tile.png" type="Texture" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
@@ -40,6 +40,7 @@
 [ext_resource path="res://puzzles/sql/S2/s2.tscn" type="PackedScene" id=38]
 [ext_resource path="res://puzzles/logic gate/LG_9 - Bridge/LG_9.tscn" type="PackedScene" id=39]
 [ext_resource path="res://npc/npc4 bridge/NPC4.tscn" type="PackedScene" id=40]
+[ext_resource path="res://npc/npc5 shop/NPC5.tscn" type="PackedScene" id=42]
 
 [sub_resource type="Animation" id=9]
 resource_name = "New Anim"
@@ -386,7 +387,7 @@ position = Vector2( 3104, -48 )
 texture = ExtResource( 21 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 244, 512 )
+position = Vector2( 236, 512 )
 z_index = 5
 
 [node name="Background" type="Node2D" parent="."]
@@ -397,7 +398,7 @@ z_index = -2
 tile_set = ExtResource( 17 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( -2424787, 536870921, 0, -2424715, 536870918, 0, -2359261, 8, 0, -2359257, 1, 0, -2359256, 2, 0, -2359255, 2, 0, -2359254, 3, 0, -2359243, 1, 0, -2359242, 2, 0, -2359241, 3, 0, -2359179, 536870917, 0, -2359150, 536870918, 0, -2293643, 536870917, 0, -2293633, 6, 0, -2293614, 536870917, 0, -2228110, 10, 0, -2228107, 536870917, 0, -2228105, 9, 0, -2228097, 5, 0, -2228094, 6, 0, -2228078, 536870917, 0, -2162625, 7, 0, -2162624, 536870915, 0, -2162623, 2, 0, -2162622, 2, 0, -2162621, 3, 0, -2162616, 536870919, 0, -2162612, 1, 0, -2162611, 3, 0, -2162607, 536870920, 0, -2162603, 7, 0, -2162592, 8, 0, -2162571, 536870916, 0, -2162565, 8, 0, -2162561, 4, 0, -2162559, 8, 0, -2162558, 4, 0, -2162547, 7, 0, -2162542, 536870916, 0, -1572866, 536870920, 0, -1507291, 8, 0, -1441764, 9, 0, -1376243, 536870919, 0, -1376231, 7, 0, -1376195, 536870915, 0, -1376194, 536870914, 0, -1376193, 536870914, 0, -1376192, 536870913, 0 )
+tile_data = PoolIntArray( -2424787, 536870921, 0, -2359261, 8, 0, -2359257, 1, 0, -2359256, 2, 0, -2359255, 2, 0, -2359254, 3, 0, -2359243, 1, 0, -2359242, 2, 0, -2359241, 3, 0, -2228110, 10, 0, -2162625, 7, 0, -2162624, 536870915, 0, -2162623, 2, 0, -2162622, 2, 0, -2162621, 3, 0, -2162616, 536870919, 0, -2162612, 1, 0, -2162611, 3, 0, -2162607, 536870920, 0, -2162603, 7, 0, -2162592, 8, 0, -2162559, 8, 0, -2162547, 7, 0, -1572866, 536870920, 0, -1507291, 8, 0, -1441764, 9, 0, -1376243, 536870919, 0, -1376231, 7, 0, -1376195, 536870915, 0, -1376194, 536870914, 0, -1376193, 536870914, 0, -1376192, 536870913, 0 )
 
 [node name="animated_trees" type="Node2D" parent="Background"]
 
@@ -945,6 +946,9 @@ dialogue_lines6 = [ "Good job on completing the tests %s.", "I now declare you u
 [node name="NPC4" parent="NPCs" instance=ExtResource( 40 )]
 position = Vector2( 4064, -16 )
 target_mission_numbers = [ 14, 16 ]
+
+[node name="NPC5" parent="." instance=ExtResource( 42 )]
+position = Vector2( 4880, -20 )
 
 [connection signal="body_entered" from="Death Zones/Area2D0" to="Death Zones" method="_on_Area2D0_body_entered"]
 [connection signal="body_entered" from="Death Zones/Area2D1" to="Death Zones" method="_on_Area2D1_body_entered"]

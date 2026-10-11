@@ -187,6 +187,7 @@ func _on_Confirm_pressed():
 		print("incorrect answer")
 		return
 	puzzleSolve()
+	Data.change_gold(5)
 	puzzleSolved = true
 	
 	$Popup.visible = false

@@ -363,6 +363,7 @@ margin_right = 248.0
 margin_bottom = 176.0
 
 [node name="Gate 4" parent="Popup/NinePatchRect/Gates" instance=ExtResource( 7 )]
+visible = false
 margin_left = 424.0
 margin_top = 88.0
 margin_right = 456.0
@@ -370,24 +371,24 @@ margin_bottom = 120.0
 LogicGate = "AND"
 
 [node name="Gate 5" parent="Popup/NinePatchRect/Gates" instance=ExtResource( 7 )]
-margin_left = 488.0
-margin_top = 88.0
-margin_right = 520.0
-margin_bottom = 120.0
+margin_left = 416.0
+margin_top = 120.0
+margin_right = 448.0
+margin_bottom = 152.0
 LogicGate = "OR"
 
 [node name="Gate 6" parent="Popup/NinePatchRect/Gates" instance=ExtResource( 7 )]
-margin_left = 424.0
-margin_top = 152.0
-margin_right = 456.0
-margin_bottom = 184.0
+margin_left = 456.0
+margin_top = 120.0
+margin_right = 488.0
+margin_bottom = 152.0
 LogicGate = "XOR"
 
 [node name="Gate 7" parent="Popup/NinePatchRect/Gates" instance=ExtResource( 7 )]
-margin_left = 488.0
-margin_top = 152.0
-margin_right = 520.0
-margin_bottom = 184.0
+margin_left = 496.0
+margin_top = 120.0
+margin_right = 528.0
+margin_bottom = 152.0
 LogicGate = "NOT"
 
 [node name="Sources" type="Node2D" parent="Popup/NinePatchRect"]
@@ -445,6 +446,7 @@ text = "Activate"
 [node name="Preview" type="CanvasLayer" parent="."]
 pause_mode = 2
 layer = 5
+visible = false
 
 [node name="NinePatchRect" parent="Preview" instance=ExtResource( 1 )]
 margin_left = 32.0
@@ -572,6 +574,7 @@ margin_bottom = 176.0
 LogicGate = "XOR"
 
 [node name="Gate 4" parent="Preview/NinePatchRect/Gates" instance=ExtResource( 7 )]
+visible = false
 margin_left = 424.0
 margin_top = 88.0
 margin_right = 456.0
@@ -579,22 +582,22 @@ margin_bottom = 120.0
 LogicGate = "AND"
 
 [node name="Gate 5" parent="Preview/NinePatchRect/Gates" instance=ExtResource( 7 )]
-margin_left = 488.0
-margin_top = 88.0
-margin_right = 520.0
-margin_bottom = 120.0
+margin_left = 416.0
+margin_top = 120.0
+margin_right = 448.0
+margin_bottom = 152.0
 
 [node name="Gate 6" parent="Preview/NinePatchRect/Gates" instance=ExtResource( 7 )]
-margin_left = 424.0
-margin_top = 152.0
-margin_right = 456.0
-margin_bottom = 184.0
+margin_left = 456.0
+margin_top = 120.0
+margin_right = 488.0
+margin_bottom = 152.0
 
 [node name="Gate 7" parent="Preview/NinePatchRect/Gates" instance=ExtResource( 7 )]
-margin_left = 488.0
-margin_top = 152.0
-margin_right = 520.0
-margin_bottom = 184.0
+margin_left = 496.0
+margin_top = 120.0
+margin_right = 528.0
+margin_bottom = 152.0
 
 [node name="Sources" type="Node2D" parent="Preview/NinePatchRect"]
 position = Vector2( -16, 0 )

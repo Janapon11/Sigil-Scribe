@@ -202,6 +202,7 @@ func _on_confirm_pressed():
 		yield($Gate/Bars/AnimatedSprite, "animation_finished")
 		$Gate/Bars/AnimatedSprite.play("open")
 		$Gate/Bars/StaticBody2D/CollisionShape2D.disabled = true
+		Data.change_gold(15)
 		_puzzle_solved()
 	else:
 		$Popup/InstructionLabel.text = "Incorrect logic, try again."

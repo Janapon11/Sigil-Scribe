@@ -175,7 +175,7 @@ func _on_Confirm_pressed():
 			exit_puzzle()
 		print("incorrect answer")
 		return
-	
+	Data.change_gold(15)
 	puzzleSolve()
 	puzzleSolved = true
 	
