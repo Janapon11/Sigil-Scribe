@@ -56,7 +56,7 @@ func update_mission_panel(mission_id: int = -1): #mission starts at 0
 		17:
 			mission_panel_label.text = "Mission: \n- You have recieved payment, look for a shop to see available goods."
 		18:
-			mission_panel_label.text = "Mission: \n- Buy an item from Shopkeeper."
+			mission_panel_label.text = "Mission: \n- Buy an item from Shop."
 		
 		
 		_:

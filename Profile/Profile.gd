@@ -4,7 +4,41 @@ extends CanvasLayer
 onready var profile_details = $ProfileDetails
 onready var profile_btn = $ProfileButton
 
-
+func update_achievements():
+	var t1 = $ProfileDetails/Achievements/NinePatchRect/ScrollContainer/AchievementContainer/Title1
+	var t2 = $ProfileDetails/Achievements/NinePatchRect/ScrollContainer/AchievementContainer/Title2
+	var t3 = $ProfileDetails/Achievements/NinePatchRect/ScrollContainer/AchievementContainer/Title3
+	var t4 = $ProfileDetails/Achievements/NinePatchRect/ScrollContainer/AchievementContainer/Title4
+	var t5 = $ProfileDetails/Achievements/NinePatchRect/ScrollContainer/AchievementContainer/Title5
+	
+	if "First Query" in Data.save_data["ach"]:
+		t1.visible = true
+	else:
+		t1.visible = false
+	
+	if "Logic Starter" in Data.save_data["ach"]:
+		t2.visible = true
+	else:
+		t2.visible = false
+	
+	if "7-Bit Steak" in Data.save_data["ach"]:
+		t3.visible = true
+	else:
+		t3.visible = false
+	
+	if "Tutorial Done" in Data.save_data["ach"]:
+		t4.visible = true
+		$ProfileDetails/BasicDetails/StudentScribeBadge.visible = false
+		$ProfileDetails/BasicDetails/NoviceScribeBadge.visible = true
+	else:
+		t4.visible = false
+		$ProfileDetails/BasicDetails/StudentScribeBadge.visible = true
+		$ProfileDetails/BasicDetails/NoviceScribeBadge.visible = false
+	
+	if "First Exchange" in Data.save_data["ach"]:
+		t5.visible = true
+	else:
+		t5.visible = false
 
 func _ready():
 	profile_details.visible = false
@@ -12,14 +46,25 @@ func _ready():
 	
 	#Update Name
 	$ProfileDetails/BasicDetails/PlayerName.text = Data.save_data["player_name"]
-	
-	
-	
 	if $"..".name == "ControlButtons": #if parent is TouchScreen Scene
 		pass
 	else: #else, currently only Welcome Scene
 		profile_btn.visible = false
+	
+	if not Data.is_connected("skill_updated", self, "update_skills"):
+		Data.connect("skill_updated", self, "update_skills")
+		
+	if not Data.is_connected("achieved", self, "update_achievements"):
+		Data.connect("achieved", self, "update_achievements")
+	update_achievements()
+	update_skills()
 
+func update_skills():
+	$ProfileDetails/Skills/DJump.visible = false
+	if "djump" in Data.save_data["player_skills"]:
+		$ProfileDetails/Skills/DJump.visible = true
+	else:
+		$ProfileDetails/Skills/DJump.visible = false
 
 func _on_ProfileButton_pressed():
 	profile_details.visible = true
@@ -29,6 +74,9 @@ func _on_ProfileButton_pressed():
 		$"..".visible = false
 	
 	get_tree().paused = true
+	
+	update_achievements()
+	update_skills()
 
 ######################## Profile Details ######################
 func _on_TouchScreenButton_pressed():

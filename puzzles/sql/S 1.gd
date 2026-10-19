@@ -247,6 +247,8 @@ func _on_DC_Confirm_pressed():
 			target_player.reset_player()
 		else:
 			target_player._ready()
+	
+	Data.achieved("First Query")
 
 func _on_Button_pressed():
 	$Popup/tutorial/t1.visible = false

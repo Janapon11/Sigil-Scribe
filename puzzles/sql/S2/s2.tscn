@@ -2,7 +2,7 @@
 
 [ext_resource path="res://puzzles/testBGNinePatchRect.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/x.png" type="Texture" id=2]
-[ext_resource path="res://Assets/sql_area.png" type="Texture" id=3]
+[ext_resource path="res://Assets2/sprite/puzzle_indicator.png" type="Texture" id=3]
 [ext_resource path="res://font/VT323/VT323-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://ui/normalbtn1.tres" type="StyleBox" id=5]
 [ext_resource path="res://puzzles/sql/S2/s2.gd" type="Script" id=6]
@@ -376,7 +376,7 @@ expand_margin_top = 4.0
 expand_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxFlat" id=82]
-bg_color = Color( 0.192157, 0.364706, 0.729412, 1 )
+bg_color = Color( 0.270588, 0.32549, 0.439216, 1 )
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -487,8 +487,8 @@ expand_margin_right = 4.0
 expand_margin_top = 4.0
 expand_margin_bottom = 4.0
 
-[sub_resource type="StyleBoxFlat" id=94]
-bg_color = Color( 0.192157, 0.364706, 0.729412, 1 )
+[sub_resource type="StyleBoxFlat" id=89]
+bg_color = Color( 0.270588, 0.32549, 0.439216, 1 )
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -552,7 +552,7 @@ expand_margin_top = 4.0
 expand_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxFlat" id=93]
-bg_color = Color( 0.192157, 0.364706, 0.729412, 1 )
+bg_color = Color( 0.270588, 0.32549, 0.439216, 1 )
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -567,8 +567,8 @@ expand_margin_right = 4.0
 expand_margin_top = 4.0
 expand_margin_bottom = 4.0
 
-[sub_resource type="StyleBoxFlat" id=95]
-bg_color = Color( 0.192157, 0.364706, 0.729412, 1 )
+[sub_resource type="StyleBoxFlat" id=94]
+bg_color = Color( 0.270588, 0.32549, 0.439216, 1 )
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -1298,7 +1298,7 @@ margin_right = 284.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 190, 50 )
 custom_fonts/font = SubResource( 2 )
-custom_styles/normal = SubResource( 94 )
+custom_styles/normal = SubResource( 89 )
 text = "status = 'equipped'"
 sql_text = "status = 'equipped'"
 locked = true
@@ -1391,7 +1391,7 @@ margin_top = 31.0
 margin_right = 348.0
 margin_bottom = 81.0
 rect_min_size = Vector2( 40, 50 )
-custom_styles/normal = SubResource( 95 )
+custom_styles/normal = SubResource( 94 )
 text = ""
 sql_text = ""
 locked = true

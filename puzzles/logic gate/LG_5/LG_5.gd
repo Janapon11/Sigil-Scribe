@@ -199,6 +199,7 @@ func _puzzle_solved():
 		var solved = Data.save_data.get("puzzles_solved", [])
 		if "LG_5" in solved and "LG_6" in solved and "LG_7" in solved:
 			Data.advance_mission()
+			Data.achieved("7-Bit Steak")
 	exit_puzzle()
 
 func _notification(what: int) -> void:

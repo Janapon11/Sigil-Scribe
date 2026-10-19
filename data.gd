@@ -16,6 +16,12 @@ var first_welcome_screen = true
 # Make sure this signal is declared at the top of Data.gd
 signal mission_updated(new_mission)
 signal health_updated()
+signal skill_updated()
+signal achieved(title)
+
+func achieved(title):
+	save_data["ach"].append(title)
+	emit_signal("achieved", title)
 
 func change_gold(amount: int):
 	save_data["gold"] += amount

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Shop/Content.png" type="Texture" id=1]
 [ext_resource path="res://Shop/Untitled 10-03-2026 09-56-46.png" type="Texture" id=2]
@@ -9,6 +9,11 @@
 [ext_resource path="res://Assets/x.png" type="Texture" id=7]
 [ext_resource path="res://font/VT323/VT323-Regular.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://Gold/Gold.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets2/sprite/djump_boots_64x64.png" type="Texture" id=10]
+[ext_resource path="res://ui/normalbtn1.tres" type="StyleBox" id=11]
+[ext_resource path="res://ui/pressedbtn1.tres" type="StyleBox" id=12]
+[ext_resource path="res://InstructionLabel.tscn" type="PackedScene" id=13]
+[ext_resource path="res://ui/disabledbtn.tres" type="StyleBox" id=14]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
@@ -61,6 +66,19 @@ font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=12]
 size = 24
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=14]
+outline_size = 2
+outline_color = Color( 0.168627, 0.137255, 0.0313726, 1 )
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 48
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 32
 font_data = ExtResource( 8 )
 
 [sub_resource type="AtlasTexture" id=11]
@@ -135,6 +153,86 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 12 )
 text = "Items:"
 
+[node name="DjumpBootsBtn" type="TextureButton" parent="CanvasLayer/NinePatchRect/NinePatchRect"]
+margin_left = 24.0
+margin_top = 72.0
+margin_right = 88.0
+margin_bottom = 136.0
+texture_normal = ExtResource( 10 )
+
+[node name="Name" type="Label" parent="CanvasLayer/NinePatchRect/NinePatchRect/DjumpBootsBtn"]
+margin_left = -8.0
+margin_top = 72.0
+margin_right = 72.0
+margin_bottom = 89.0
+custom_colors/font_color = Color( 0.823529, 0.72549, 0.635294, 1 )
+custom_fonts/font = SubResource( 14 )
+text = "Dump Boots"
+align = 1
+valign = 1
+
+[node name="Price" type="Label" parent="CanvasLayer/NinePatchRect/NinePatchRect/DjumpBootsBtn"]
+margin_left = -8.0
+margin_top = 96.0
+margin_right = 72.0
+margin_bottom = 113.0
+custom_colors/font_color = Color( 0.823529, 0.72549, 0.635294, 1 )
+custom_fonts/font = SubResource( 14 )
+text = "100g"
+align = 1
+valign = 1
+
+[node name="confirmation" type="NinePatchRect" parent="CanvasLayer/NinePatchRect"]
+visible = false
+margin_left = 16.0
+margin_top = 72.0
+margin_right = 576.0
+margin_bottom = 296.0
+texture = ExtResource( 6 )
+patch_margin_left = 14
+patch_margin_top = 14
+patch_margin_right = 22
+patch_margin_bottom = 24
+
+[node name="Label" type="Label" parent="CanvasLayer/NinePatchRect/confirmation"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 552.0
+margin_bottom = 160.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 15 )
+text = "Buy Dump Boots for 100g?"
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/NinePatchRect/confirmation"]
+margin_left = 144.0
+margin_top = 136.0
+margin_right = 393.0
+margin_bottom = 177.0
+custom_constants/separation = 64
+
+[node name="PurchaseConfirmBtn" type="Button" parent="CanvasLayer/NinePatchRect/confirmation/HBoxContainer"]
+margin_right = 99.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 16 )
+custom_styles/hover = ExtResource( 12 )
+custom_styles/pressed = ExtResource( 12 )
+custom_styles/disabled = ExtResource( 14 )
+custom_styles/normal = ExtResource( 11 )
+text = "Confirm"
+
+[node name="PurchaseCancelBtn" type="Button" parent="CanvasLayer/NinePatchRect/confirmation/HBoxContainer"]
+margin_left = 163.0
+margin_right = 249.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 16 )
+custom_styles/hover = ExtResource( 12 )
+custom_styles/pressed = ExtResource( 12 )
+custom_styles/disabled = ExtResource( 14 )
+custom_styles/normal = ExtResource( 11 )
+text = "Cancel"
+
 [node name="CloseButton" type="TextureButton" parent="CanvasLayer/NinePatchRect"]
 margin_left = 544.0
 margin_top = 16.0
@@ -142,5 +240,10 @@ margin_right = 576.0
 margin_bottom = 48.0
 texture_normal = SubResource( 11 )
 
+[node name="InstructionLabel" parent="CanvasLayer/NinePatchRect" instance=ExtResource( 13 )]
+
 [connection signal="pressed" from="ShopButton" to="." method="_on_ShopButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/NinePatchRect/NinePatchRect/DjumpBootsBtn" to="." method="_on_DjumpBootsBtn_pressed"]
+[connection signal="pressed" from="CanvasLayer/NinePatchRect/confirmation/HBoxContainer/PurchaseConfirmBtn" to="." method="_on_PurchaseConfirmBtn_pressed"]
+[connection signal="pressed" from="CanvasLayer/NinePatchRect/confirmation/HBoxContainer/PurchaseCancelBtn" to="." method="_on_PurchaseCancelBtn_pressed"]
 [connection signal="pressed" from="CanvasLayer/NinePatchRect/CloseButton" to="." method="_on_CloseButton_pressed"]

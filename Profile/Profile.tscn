@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Profile/Profile.gd" type="Script" id=1]
 [ext_resource path="res://Assets/panel-border-005.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/x.png" type="Texture" id=9]
 [ext_resource path="res://LineEdit.gd" type="Script" id=10]
 [ext_resource path="res://player/profile.png" type="Texture" id=11]
+[ext_resource path="res://Assets2/sprite/djump_boots_64x64.png" type="Texture" id=12]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 4 )
@@ -72,6 +73,13 @@ corner_radius_bottom_left = 8
 size = 20
 font_data = ExtResource( 3 )
 
+[sub_resource type="StyleBoxFlat" id=27]
+bg_color = Color( 0.752941, 0.752941, 0.752941, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [sub_resource type="DynamicFont" id=9]
 size = 24
 font_data = ExtResource( 3 )
@@ -107,6 +115,26 @@ font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=22]
 size = 24
+outline_size = 2
+outline_color = Color( 0.298039, 0.164706, 0.0431373, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=23]
+size = 24
+outline_size = 2
+outline_color = Color( 0.298039, 0.164706, 0.0431373, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=26]
+outline_size = 2
+outline_color = Color( 0.298039, 0.164706, 0.0431373, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=24]
+size = 24
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=25]
 font_data = ExtResource( 3 )
 
 [sub_resource type="AtlasTexture" id=13]
@@ -118,7 +146,6 @@ pause_mode = 2
 script = ExtResource( 1 )
 
 [node name="ProfileDetails" type="NinePatchRect" parent="."]
-visible = false
 margin_left = 24.0
 margin_top = 24.0
 margin_right = 616.0
@@ -181,17 +208,32 @@ margin_bottom = 38.0
 custom_fonts/font = SubResource( 8 )
 text = "EXP: 0%"
 
-[node name="TitleContainer" type="Panel" parent="ProfileDetails/BasicDetails"]
+[node name="StudentScribeBadge" type="Panel" parent="ProfileDetails/BasicDetails"]
 margin_left = 96.0
 margin_right = 272.0
 margin_bottom = 32.0
 custom_styles/panel = SubResource( 20 )
 
-[node name="TitleLabel" type="Label" parent="ProfileDetails/BasicDetails/TitleContainer"]
+[node name="TitleLabel" type="Label" parent="ProfileDetails/BasicDetails/StudentScribeBadge"]
 margin_right = 176.0
 margin_bottom = 32.0
 custom_fonts/font = SubResource( 21 )
-text = "Beginner Scribe"
+text = "Student Scribe"
+align = 1
+valign = 1
+
+[node name="NoviceScribeBadge" type="Panel" parent="ProfileDetails/BasicDetails"]
+margin_left = 96.0
+margin_right = 272.0
+margin_bottom = 32.0
+custom_styles/panel = SubResource( 27 )
+
+[node name="TitleLabel" type="Label" parent="ProfileDetails/BasicDetails/NoviceScribeBadge"]
+margin_right = 176.0
+margin_bottom = 32.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 21 )
+text = "Novice Scribe"
 align = 1
 valign = 1
 
@@ -424,9 +466,34 @@ margin_left = 16.0
 margin_top = 16.0
 margin_right = 86.0
 margin_bottom = 41.0
-custom_colors/font_color = Color( 0.207843, 0.113725, 0.0313726, 1 )
 custom_fonts/font = SubResource( 22 )
 text = "Skills:"
+
+[node name="DJump" type="Sprite" parent="ProfileDetails/Skills"]
+position = Vector2( 48, 96 )
+texture = ExtResource( 12 )
+
+[node name="Name" type="Label" parent="ProfileDetails/Skills/DJump"]
+margin_left = 40.0
+margin_top = -32.0
+margin_right = 140.0
+margin_bottom = -7.0
+custom_colors/font_color = Color( 0.890196, 0.803922, 0.72549, 1 )
+custom_fonts/font = SubResource( 23 )
+text = "Dump Boots"
+align = 1
+valign = 1
+
+[node name="description" type="Label" parent="ProfileDetails/Skills/DJump"]
+margin_left = 48.0
+margin_top = -8.0
+margin_right = 208.0
+margin_bottom = 29.0
+custom_colors/font_color = Color( 0.890196, 0.803922, 0.72549, 1 )
+custom_fonts/font = SubResource( 26 )
+text = "Allows the Scribe to Double Jump."
+valign = 1
+autowrap = true
 
 [node name="Achievements" type="ColorRect" parent="ProfileDetails"]
 margin_left = 304.0
@@ -443,6 +510,102 @@ patch_margin_left = 18
 patch_margin_top = 15
 patch_margin_right = 17
 patch_margin_bottom = 12
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ProfileDetails/Achievements/NinePatchRect"]
+margin_left = 16.0
+margin_top = 48.0
+margin_right = 256.0
+margin_bottom = 224.0
+
+[node name="AchievementContainer" type="VBoxContainer" parent="ProfileDetails/Achievements/NinePatchRect/ScrollContainer"]
+margin_right = 160.0
+margin_bottom = 310.0
+custom_constants/separation = 32
+
+[node name="Title1" type="Label" parent="ProfileDetails/Achievements/NinePatchRect/ScrollContainer/AchievementContainer"]
+margin_right = 160.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 24 )
+text = "• First Query"
+
+[node name="description" type="Label" parent="ProfileDetails/Achievements/NinePatchRect/ScrollContainer/AchievementContainer/Title1"]
+modulate = Color( 1, 1, 1, 0.72549 )
+margin_left = 24.0
+margin_top = 32.0
+margin_right = 162.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 25 )
+text = "First SQL Puzzle Solved"
+
+[node name="Title2" type="Label" parent="ProfileDetails/Achievements/NinePatchRect/ScrollContainer/AchievementContainer"]
+margin_top = 57.0
+margin_right = 160.0
+margin_bottom = 82.0
+custom_fonts/font = SubResource( 24 )
+text = "• Logic Starter"
+
+[node name="description" type="Label" parent="ProfileDetails/Achievements/NinePatchRect/ScrollContainer/AchievementContainer/Title2"]
+modulate = Color( 1, 1, 1, 0.72549 )
+margin_left = 24.0
+margin_top = 32.0
+margin_right = 162.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 25 )
+text = "First Digital Logic Puzzle Solved"
+
+[node name="Title3" type="Label" parent="ProfileDetails/Achievements/NinePatchRect/ScrollContainer/AchievementContainer"]
+margin_top = 114.0
+margin_right = 160.0
+margin_bottom = 139.0
+custom_fonts/font = SubResource( 24 )
+text = "• 7-Bit Steak"
+
+[node name="description" type="Label" parent="ProfileDetails/Achievements/NinePatchRect/ScrollContainer/AchievementContainer/Title3"]
+modulate = Color( 1, 1, 1, 0.72549 )
+margin_left = 24.0
+margin_top = 32.0
+margin_right = 162.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 25 )
+text = "Completed 7 Basic Logic Puzzles"
+
+[node name="Title4" type="Label" parent="ProfileDetails/Achievements/NinePatchRect/ScrollContainer/AchievementContainer"]
+margin_top = 171.0
+margin_right = 160.0
+margin_bottom = 196.0
+custom_fonts/font = SubResource( 24 )
+text = "• Tutorial Done"
+
+[node name="description" type="Label" parent="ProfileDetails/Achievements/NinePatchRect/ScrollContainer/AchievementContainer/Title4"]
+modulate = Color( 1, 1, 1, 0.72549 )
+margin_left = 24.0
+margin_top = 32.0
+margin_right = 162.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 25 )
+text = "Completed the Tutorial"
+
+[node name="Title5" type="Label" parent="ProfileDetails/Achievements/NinePatchRect/ScrollContainer/AchievementContainer"]
+margin_top = 228.0
+margin_right = 160.0
+margin_bottom = 253.0
+custom_fonts/font = SubResource( 24 )
+text = "• First Exchange"
+
+[node name="description" type="Label" parent="ProfileDetails/Achievements/NinePatchRect/ScrollContainer/AchievementContainer/Title5"]
+modulate = Color( 1, 1, 1, 0.72549 )
+margin_left = 24.0
+margin_top = 32.0
+margin_right = 162.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 25 )
+text = "First Time Buying an Item"
+
+[node name="Blank(Space giver)" type="Label" parent="ProfileDetails/Achievements/NinePatchRect/ScrollContainer/AchievementContainer"]
+margin_top = 285.0
+margin_right = 160.0
+margin_bottom = 310.0
+custom_fonts/font = SubResource( 24 )
 
 [node name="Label" type="Label" parent="ProfileDetails/Achievements"]
 margin_left = 16.0

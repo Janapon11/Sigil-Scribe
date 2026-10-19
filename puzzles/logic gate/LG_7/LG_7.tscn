@@ -2,7 +2,7 @@
 
 [ext_resource path="res://puzzles/testBGNinePatchRect.tscn" type="PackedScene" id=1]
 [ext_resource path="res://puzzles/logic gate/LG_7/LG_7.gd" type="Script" id=2]
-[ext_resource path="res://Assets/dl_area.png" type="Texture" id=3]
+[ext_resource path="res://Assets2/sprite/puzzle_indicator.png" type="Texture" id=3]
 [ext_resource path="res://Assets/torches/Small_Green_Torch.png" type="Texture" id=4]
 [ext_resource path="res://puzzles/logic gate/components/Wire.tscn" type="PackedScene" id=5]
 [ext_resource path="res://puzzles/logic gate/components/Source.tscn" type="PackedScene" id=6]
@@ -481,7 +481,6 @@ position = Vector2( 560, 48 )
 normal = SubResource( 3 )
 
 [node name="InstructionLabel" parent="Popup" instance=ExtResource( 20 )]
-modulate = Color( 1, 1, 1, 0 )
 
 [node name="confirm" type="Button" parent="Popup"]
 margin_left = 432.0

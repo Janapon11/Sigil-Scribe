@@ -245,6 +245,8 @@ func _puzzle_solved():
 		if "LG_1" in solved and "LG_2" in solved and "LG_3" in solved:
 			Data.advance_mission()
 	exit_puzzle()
+	if not "Logic Starter" in Data.save_data["ach"]:
+		Data.achieved("Logic Starter")
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_DRAG_END:

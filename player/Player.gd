@@ -21,6 +21,12 @@ var snap_vector = Vector2.DOWN * 8
 var run_timer = 0.0
 var fall_grace_timer = 0.0
 var coyote_timer = 0.0 # Tracks the "air time" for jumping
+var djump = false
+var can_double_jump = false # Tracks if double jump is available
+
+func _skill_updated():
+	if "djump" in Data.save_data["player_skills"]:
+		djump = true
 
 func _heart_updated():
 	if Data.save_data["current_health"] <= 0:
@@ -29,6 +35,9 @@ func _heart_updated():
 func _ready():
 	$Control/TouchScreen._ready()
 	randomize()
+	
+	# Initialize skill check right away on ready
+	_skill_updated()
 	
 	# Safely connect the global signal to local function
 	if Data.has_signal("health_updated"):
@@ -74,6 +83,9 @@ func _ready():
 	saved_pos = Data.get_player_position()
 	if saved_pos != Vector2.ZERO:
 		self.global_position = saved_pos
+	
+	if not Data.is_connected("skill_updated", self, "_skill_updated"):
+		Data.connect("skill_updated", self, "_skill_updated")
 
 func reset_player():
 	# Reset movement physics & timers
@@ -82,6 +94,7 @@ func reset_player():
 	run_timer = 0.0
 	fall_grace_timer = 0.0
 	coyote_timer = 0.0
+	can_double_jump = false
 	
 	# Stop ongoing audio
 	if run_sfx and run_sfx.playing:
@@ -97,25 +110,29 @@ func _on_Interact_pressed():
 func _physics_process(delta):
 	motion.y += GRAVITY * delta
 	
-	# Horizontal Movement
+	# Horizontal Movement & Facing Direction
 	if Input.is_action_pressed("ui_right"):
 		motion.x = SPEED
 		$Sprite.flip_h = false
-		$Sprite.play("run")
+		if is_on_floor():
+			$Sprite.play("run")
 		
 	elif Input.is_action_pressed("ui_left"):
 		motion.x = -SPEED
 		$Sprite.flip_h = true
-		$Sprite.play("run")
+		if is_on_floor():
+			$Sprite.play("run")
 		
 	else:
 		motion.x = 0
-		$Sprite.play("idle")
+		if is_on_floor():
+			$Sprite.play("idle")
 		
 	# --- SFX & Coyote Timer Logic ---
 	if is_on_floor():
 		coyote_timer = COYOTE_TIME # Reset coyote timer while on floor
 		fall_grace_timer = 0.0
+		can_double_jump = true # Reset double jump availability on floor
 		run_timer += delta 
 		if abs(motion.x) > 0 and run_timer >= RUN_SFX_DELAY:
 			play_running_sfx()
@@ -131,19 +148,37 @@ func _physics_process(delta):
 				run_sfx.stop()
 				run_timer = 0.0
 
-	# --- Jump Logic with Coyote Time ---
-	if Input.is_action_just_pressed("ui_up") and coyote_timer > 0:
-		motion.y = JUMP_HEIGHT
-		snap_vector = Vector2.ZERO 
-		coyote_timer = 0 # Prevent double jumping in mid-air
-		run_sfx.stop()
-		
-		jump_sfx.pitch_scale = rand_range(0.8, 1.1)
-		jump_sfx.play()
+	# --- Jump & Double Jump Logic ---
+	if Input.is_action_just_pressed("ui_up"):
+		if coyote_timer > 0:
+			# Normal / Coyote Jump from floor
+			motion.y = JUMP_HEIGHT
+			snap_vector = Vector2.ZERO 
+			coyote_timer = 0 
+			run_sfx.stop()
+			
+			jump_sfx.pitch_scale = rand_range(0.8, 1.1)
+			jump_sfx.play()
+			$Sprite.play("jump")
+			
+		elif djump and can_double_jump:
+			# Double Jump in mid-air
+			motion.y = JUMP_HEIGHT 
+			snap_vector = Vector2.ZERO 
+			can_double_jump = false # Consume the double jump
+			run_sfx.stop()
+			
+			jump_sfx.pitch_scale = rand_range(1.0, 1.3)
+			jump_sfx.play()
+			
+			$Sprite.play("djump") # Play the double jump animation cleanly once
 	
-	# Visuals & Snap updates
+	# --- Visuals & Snap updates ---
 	if not is_on_floor():
-		$Sprite.play("jump")
+		# Play normal jump only if we haven't triggered djump and aren't already playing it
+		if can_double_jump and $Sprite.animation != "djump":
+			$Sprite.play("jump")
+			
 		if motion.y > 0:
 			snap_vector = Vector2.DOWN * 8
 	else:

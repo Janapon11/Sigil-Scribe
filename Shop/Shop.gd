@@ -18,6 +18,11 @@ func _ready():
 		$NPC.hide()
 		if Data.save_data["mission_number"] > 17:
 			$ShopButton.show()
+			
+	if not Data.is_connected("skill_updated", self, "update_items"):
+		Data.connect("skill_updated", self, "update_items")
+	
+	update_items()
 	
 	if not Data.is_connected("mission_updated", self, "show_btn"):
 		Data.connect("mission_updated", self, "show_btn")
@@ -45,3 +50,35 @@ func _on_CloseButton_pressed():
 	$CanvasLayer.hide()
 	if not NPC:
 		$ShopButton.show()
+	if "djump" in Data.save_data["player_skills"]:
+		if not "First Exchange" in Data.save_data["ach"]:
+			Data.achieved("First Exchange")
+
+
+func _on_DjumpBootsBtn_pressed():
+	if Data.save_data["gold"] < 100:
+		$CanvasLayer/NinePatchRect/InstructionLabel.text = "Not Enough Gold."
+		$CanvasLayer/NinePatchRect/InstructionLabel/AnimationPlayer.play("in_out")
+		return
+	$CanvasLayer/NinePatchRect/confirmation.visible = true
+	
+
+
+
+func _on_PurchaseConfirmBtn_pressed():
+	Data.save_data["player_skills"].append("djump")
+	$CanvasLayer/NinePatchRect/confirmation.visible = false
+	update_items()
+	Data.emit_signal("skill_updated")
+	$CanvasLayer/NinePatchRect/NinePatchRect/DjumpBootsBtn.visible = false
+	Data.change_gold(-100)
+	if Data.save_data["mission_number"] == 18:
+		Data.advance_mission()
+
+
+func _on_PurchaseCancelBtn_pressed():
+	$CanvasLayer/NinePatchRect/confirmation.visible = false
+
+func update_items():
+	if "djump" in Data.save_data["player_skills"]:
+		$CanvasLayer/NinePatchRect/NinePatchRect/DjumpBootsBtn.visible = false

@@ -146,6 +146,8 @@ func puzzleSolve():
 		Data.save_data["ach"].append("s2")
 		Data.save_game()
 	_ready()
+	
+	Data.achieved("Tutorial Done")
 
 func _on_Confirm_pressed():
 	ansBlocks = [
