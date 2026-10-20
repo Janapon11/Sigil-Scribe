@@ -181,6 +181,8 @@ func _on_Confirm_pressed():
 	puzzleSolve()
 	puzzleSolved = true
 	
+	
+	
 	$Popup.visible = false
 	
 	# 2. Advance mission safely

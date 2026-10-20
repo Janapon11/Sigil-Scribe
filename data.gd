@@ -195,7 +195,7 @@ func load_game():
 	if not file.file_exists(SAVE_PATH):
 		save_game()
 		return
-
+	
 	if file.open(SAVE_PATH, File.READ) == OK:
 		var json_result = JSON.parse(file.get_as_text())
 		file.close()
