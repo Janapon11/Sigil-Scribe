@@ -7,5 +7,5 @@ func _ready():
 
 func achieved(label):
 	$AnimationPlayer.stop()
-	$".".text = "Achived: " + label
+	$".".text = "Achieved: " + label
 	$AnimationPlayer.play("fade-out")
