@@ -161,10 +161,10 @@ config/icon="res://logo.png"
 
 Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 Data="*res://data.gd"
-CloudSaveManager="*res://CloudSaveManager.gd"
+CloudSaveManager="*res://addons/CloudSaveManager.gd"
 Global="*res://Global.gd"
 DragManager="*res://DragManager.gd"
-MobileInputManager="*res://MobileInputManager.gd"
+MobileInputManager="*res://addons/MobileInputManager.gd"
 MissionPanel="*res://Mission Panel/Mission Panel.gd"
 
 [debug]
