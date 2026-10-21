@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://tileset/dirt_tile.png" type="Texture" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
@@ -42,6 +42,9 @@
 [ext_resource path="res://npc/npc4 bridge/NPC4.tscn" type="PackedScene" id=40]
 [ext_resource path="res://font/VT323/VT323-Regular.ttf" type="DynamicFontData" id=41]
 [ext_resource path="res://npc/npc5 shop/NPC5.tscn" type="PackedScene" id=42]
+[ext_resource path="res://NewLocation/LocationName.tscn" type="PackedScene" id=43]
+[ext_resource path="res://Assets2/houses/house 4.png" type="Texture" id=44]
+[ext_resource path="res://Assets2/houses/house 3.png" type="Texture" id=45]
 
 [sub_resource type="Animation" id=9]
 resource_name = "New Anim"
@@ -374,20 +377,6 @@ texture = ExtResource( 14 )
 position = Vector2( 1592, 336 )
 texture = ExtResource( 21 )
 
-[node name="House6" type="Sprite" parent="Houses"]
-position = Vector2( 5664, -48 )
-texture = ExtResource( 14 )
-flip_h = true
-
-[node name="House7" type="Sprite" parent="Houses"]
-position = Vector2( 5848, -48 )
-texture = ExtResource( 21 )
-flip_h = true
-
-[node name="House11" type="Sprite" parent="Houses"]
-position = Vector2( 5028, -48 )
-texture = ExtResource( 21 )
-
 [node name="House8" type="Sprite" parent="Houses"]
 position = Vector2( 2352, -144 )
 texture = ExtResource( 14 )
@@ -408,7 +397,7 @@ z_index = -2
 tile_set = ExtResource( 17 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( -2424787, 536870921, 0, -2359261, 8, 0, -2359257, 1, 0, -2359256, 2, 0, -2359255, 2, 0, -2359254, 3, 0, -2359243, 1, 0, -2359242, 2, 0, -2359241, 3, 0, -2228110, 10, 0, -2162625, 7, 0, -2162624, 536870915, 0, -2162623, 2, 0, -2162622, 2, 0, -2162621, 3, 0, -2162616, 536870919, 0, -2162612, 1, 0, -2162611, 3, 0, -2162607, 536870920, 0, -2162603, 7, 0, -2162592, 8, 0, -2162559, 8, 0, -2162547, 7, 0, -1572866, 536870920, 0, -1507291, 8, 0, -1441764, 9, 0, -1376243, 536870919, 0, -1376231, 7, 0, -1376195, 536870915, 0, -1376194, 536870914, 0, -1376193, 536870914, 0, -1376192, 536870913, 0 )
+tile_data = PoolIntArray( -2424787, 536870921, 0, -2359261, 8, 0, -2359257, 1, 0, -2359256, 2, 0, -2359255, 2, 0, -2359254, 3, 0, -2359243, 1, 0, -2359242, 2, 0, -2359241, 3, 0, -2162625, 7, 0, -2162624, 536870915, 0, -2162623, 2, 0, -2162622, 2, 0, -2162621, 3, 0, -2162616, 536870919, 0, -2162612, 1, 0, -2162611, 3, 0, -2162607, 536870920, 0, -2162603, 7, 0, -2162592, 8, 0, -2162559, 8, 0, -2162547, 7, 0, -1572866, 536870920, 0, -1507291, 8, 0, -1441764, 9, 0, -1376243, 536870919, 0, -1376231, 7, 0, -1376195, 536870915, 0, -1376194, 536870914, 0, -1376193, 536870914, 0, -1376192, 536870913, 0 )
 
 [node name="animated_trees" type="Node2D" parent="Background"]
 
@@ -446,14 +435,20 @@ position = Vector2( 2512, -1072 )
 position = Vector2( 3620, -1072 )
 
 [node name="Tree_animated21" parent="Background/animated_trees" instance=ExtResource( 35 )]
-position = Vector2( 3776, -1072 )
+position = Vector2( 3912, -1072 )
 
 [node name="Tree_animated22" parent="Background/animated_trees" instance=ExtResource( 35 )]
-position = Vector2( 3832, -1072 )
+position = Vector2( 3780, -1072 )
 flip_h = true
 
+[node name="Tree_animated27" parent="Background/animated_trees" instance=ExtResource( 35 )]
+position = Vector2( 3760, -1072 )
+
+[node name="Tree_animated28" parent="Background/animated_trees" instance=ExtResource( 35 )]
+position = Vector2( 3724, -1072 )
+
 [node name="Tree_animated23" parent="Background/animated_trees" instance=ExtResource( 35 )]
-position = Vector2( 3864, -1072 )
+position = Vector2( 3960, -1072 )
 flip_h = true
 
 [node name="Tree_animated24" parent="Background/animated_trees" instance=ExtResource( 35 )]
@@ -464,15 +459,19 @@ flip_h = true
 position = Vector2( 4184, -1072 )
 flip_h = true
 
-[node name="Tree_animated27" parent="Background/animated_trees" instance=ExtResource( 35 )]
-position = Vector2( 4680, -1072 )
+[node name="Tree_animated29" parent="Background/animated_trees" instance=ExtResource( 35 )]
+position = Vector2( 4832, -1072 )
+
+[node name="Tree_animated32" parent="Background/animated_trees" instance=ExtResource( 35 )]
+position = Vector2( 4968, -1040 )
 flip_h = true
 
-[node name="Tree_animated28" parent="Background/animated_trees" instance=ExtResource( 35 )]
-position = Vector2( 4720, -1072 )
+[node name="Tree_animated30" parent="Background/animated_trees" instance=ExtResource( 35 )]
+position = Vector2( 4588, -1072 )
 
-[node name="Tree_animated29" parent="Background/animated_trees" instance=ExtResource( 35 )]
-position = Vector2( 4908, -1040 )
+[node name="Tree_animated31" parent="Background/animated_trees" instance=ExtResource( 35 )]
+position = Vector2( 4564, -1072 )
+flip_h = true
 
 [node name="Tree_animated26" parent="Background/animated_trees" instance=ExtResource( 35 )]
 position = Vector2( 4232, -1072 )
@@ -564,14 +563,16 @@ position = Vector2( 2904, -1040 )
 position = Vector2( 3048, -1040 )
 
 [node name="Bush_animated25" parent="Background/animated_bushes" instance=ExtResource( 36 )]
-position = Vector2( 3652, -1040 )
+position = Vector2( 3636, -1040 )
 
 [node name="Bush_animated26" parent="Background/animated_bushes" instance=ExtResource( 36 )]
-position = Vector2( 3676, -1040 )
-flip_h = true
+position = Vector2( 3664, -1040 )
+
+[node name="Bush_animated31" parent="Background/animated_bushes" instance=ExtResource( 36 )]
+position = Vector2( 3816, -1040 )
 
 [node name="Bush_animated27" parent="Background/animated_bushes" instance=ExtResource( 36 )]
-position = Vector2( 3892, -1040 )
+position = Vector2( 3976, -1040 )
 
 [node name="Bush_animated28" parent="Background/animated_bushes" instance=ExtResource( 36 )]
 position = Vector2( 4112, -1040 )
@@ -582,10 +583,6 @@ flip_h = true
 
 [node name="Bush_animated30" parent="Background/animated_bushes" instance=ExtResource( 36 )]
 position = Vector2( 4508, -1040 )
-flip_h = true
-
-[node name="Bush_animated31" parent="Background/animated_bushes" instance=ExtResource( 36 )]
-position = Vector2( 4716, -1036 )
 flip_h = true
 
 [node name="Bush_animated9" parent="Background/animated_bushes" instance=ExtResource( 36 )]
@@ -1062,7 +1059,7 @@ align = 1
 valign = 1
 
 [node name="NPC5" parent="NPCs" instance=ExtResource( 42 )]
-position = Vector2( 4880, -20 )
+position = Vector2( 5804, -20 )
 
 [node name="Label" type="Label" parent="NPCs/NPC5"]
 show_behind_parent = true
@@ -1074,6 +1071,32 @@ custom_fonts/font = SubResource( 21 )
 text = "Shop"
 align = 1
 valign = 1
+
+[node name="Location" type="Node2D" parent="."]
+
+[node name="LocationName1" parent="Location" instance=ExtResource( 43 )]
+position = Vector2( 1104, 192 )
+location_name = "Select Academy"
+
+[node name="LocationName2" parent="Location" instance=ExtResource( 43 )]
+position = Vector2( 3296, -64 )
+location_name = "Where Cliff"
+
+[node name="LocationName3" parent="Location" instance=ExtResource( 43 )]
+position = Vector2( 4484, -64 )
+location_name = "Set Bridge"
+
+[node name="LocationName4" parent="Location" instance=ExtResource( 43 )]
+position = Vector2( 5804, -64 )
+location_name = "Where House"
+
+[node name="House3" type="Sprite" parent="."]
+position = Vector2( 5692, -48 )
+texture = ExtResource( 45 )
+
+[node name="House4" type="Sprite" parent="."]
+position = Vector2( 5984, -16 )
+texture = ExtResource( 44 )
 
 [connection signal="body_entered" from="Death Zones/Area2D0" to="Death Zones" method="_on_Area2D0_body_entered"]
 [connection signal="body_entered" from="Death Zones/Area2D1" to="Death Zones" method="_on_Area2D1_body_entered"]
