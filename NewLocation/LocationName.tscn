@@ -7,7 +7,7 @@
 extents = Vector2( 64, 64 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 32
+size = 24
 outline_size = 1
 outline_color = Color( 0.164706, 0.027451, 0.027451, 1 )
 font_data = ExtResource( 2 )
@@ -71,14 +71,14 @@ shape = SubResource( 1 )
 layer = 25
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-margin_left = 192.0
+margin_left = 160.0
 margin_top = 64.0
-margin_right = 448.0
-margin_bottom = 128.0
+margin_right = 480.0
+margin_bottom = 137.0
 custom_colors/font_color = Color( 0.737255, 0.741176, 0.180392, 1 )
 custom_fonts/font = SubResource( 2 )
 custom_styles/normal = SubResource( 3 )
-text = "Scribe Academy"
+text = "You`re at: Scribe Academy"
 align = 1
 valign = 1
 autowrap = true

@@ -20,7 +20,7 @@ func _ready():
 func _on_Area2D_body_entered(body):
 	if body.name == "Player":
 		if $CanvasLayer/Timer.is_stopped():
-			$CanvasLayer/Label.text = location_name
+			$CanvasLayer/Label.text = "You`re at: " + location_name
 			$CanvasLayer/Label.show()
 			$CanvasLayer/Label/AnimationPlayer.stop()
 			$CanvasLayer/Label/AnimationPlayer.play("fade")
